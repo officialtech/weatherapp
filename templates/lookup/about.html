@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<br />
+<div class="container">
+    <h1 class="heading" id="typeHere" >
+        I'm `we` not only me... we are a group of awesome guys... 
+    </h1>
+    <button class="btn btn-sm" id="removeMe" onclick='aboutUs()'>more</button>
+</div>
+
+
+
+<script>
+    var ct = 0;
+    var txt = "Every one is unique and stupid... We love piece of code more than a shitty human one who sell himself/herself for a piece of shit called money...";
+    var speed = 80;
+    
+    function aboutUs(){
+        if (ct < txt.length){
+            
+            document.getElementById('typeHere').innerHTML += txt.charAt(ct);
+            ct++;
+            setTimeout(aboutUs, speed)
+        }
+        document.getElementById('removeMe').classList.add("d-none");
+    }
+</script>
+
+{% endblock content %}

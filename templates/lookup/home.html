@@ -2,7 +2,42 @@
 
 
 {% block content %}
+<br>
 
-<h1>Hello</h1>
+<div class="container">
+    <h1 class="display-1 text-center">Air Quality Forecast</h1>
+    <small class="text-center">AQI(Air Quality Index)</small>
+    <div class="container p-5 {{ background_color }}">
+        <div class="jumbotron jumbotron-fluid">
+            {% if api %}
+                {% if api == "Error" %}
+                    <p class="text-danger">There is an Error...Check ZIP code &amp; try again</p>
+                {% else %}
+                    <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+                    <p class="lead">{{ api.0.ReportingArea }}</p>
+                    {{ api.0.AQI }}
+                {% endif %}
+            {% endif %}
+        
+        
+            <hr class="my-4">
+            {% if api == "Error" %}
+                <p><b>Samples:</b></p>
+                <ul>
+                    <li>32003</li>
+                    <li>20004</li>
+                    <li>73301</li>
+                </ul>
+                <small><a href="https://www.airnow.gov/sites/default/files/2020-03/air-quality-guide_ozone_2015_0.pdf">Air Quality Guidance</a></small>
+                {% else %}
+                    <p class="strong"><b>What Should I Do?</b></p>
+                    <p>{{ forecast_message }}</p>
+                <small><a href="https://www.airnow.gov/sites/default/files/2020-03/air-quality-guide_ozone_2015_0.pdf">Air Quality Guidance</a></small>
+            {% endif %}
+            
+        </div>
+    <div>
+</div>
+
 
 {% endblock content %}
