@@ -8,3 +8,4 @@
 ##### put API=API_KEY (without any quotes) in .env file ex. API=jb86ghjj4hgjh4128797321vhjgjb
 > pip install -r requirements.txt or pip3 install -r requirements.txt
 
+![image](https://user-images.githubusercontent.com/46815338/111895901-c5226000-8a3b-11eb-9b42-173acf153f33.png)
